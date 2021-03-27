@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let user = {
+            name: "lihua",
+            age: "18",
+            size: {
+                height:"166",
+                weight:"55"
+            }
+        };
+        let clone = {};
+        for (let key in user) {
+            if (typeof user[key] == Object) {
+                for (let itme in user[key]) {
+                    clone[key][itme] = user[key][itme];
+                }
+            }
+            clone[key] = user[key];
+        };
+        console.log(clone);
+        console.log("--------------");
+        //如果不使用深拷贝
+        let users = {
+            name: "lihua",
+            age: "18",
+            size: {
+                height:"166",
+                weight:"55"
+            }
+        };
+        let clones = Object.assign({},users);
+        users.size.height = "00";
+        console.log(clones.size.height);
+        clones.size.weight = "001";
+        console.log(users.size.weight);
+    </script>
+</body>
+</html>
